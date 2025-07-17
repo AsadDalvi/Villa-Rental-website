@@ -1,0 +1,77 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'HRWCSS.css' %}"/>
+    <style>
+    </style>
+    <title>
+        Home Rental Calculation
+    </title>
+</head>
+<body>
+<div class="form">
+    <h1>
+        Home Rental Calculation
+    </h1>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <center>
+            <table class="select">
+                <tbody>
+                <tr>
+                    <td>
+                        Type of Home:
+                    </td>
+                    <td>
+                        <select name="TypeofHome" >
+                            <option value="4">Villa</option>
+                            <option value="2">Flat</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Rent duration:
+                    </td>
+                    <td>
+                        <select name="Rentduration">
+                            <option value="12">1 Year</option>
+                            <option value="24">2 Year</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bedroom, Hall, Kitchen:</td>
+                    <td>
+                        <select name="BHK">
+                            <option value="50">2 BHK</option>
+                            <option value="100">3 BHK</option>
+                            <option value="150">4 BHK</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Total RENT:
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" name="response" value="{{TotalRent}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button>
+                            Calculate Total Rent
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </center>
+    </form>
+</div>
+</body>
+</html>

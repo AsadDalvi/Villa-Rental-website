@@ -1,0 +1,73 @@
+:root {
+    --background: linear-gradient(30deg, #3498db 30%, #2980b9);
+    --background-select: linear-gradient(to left, #2c3e50 3rem, #34495e 3rem);
+    --font-family: "Times New Roman", Times, serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    background: var(--background);
+    color: white;
+    font-family: var(--font-family);
+}
+
+select {
+    appearance: none;
+    border: 2px solid black;
+    outline: 2;
+    background: none;
+    color: inherit;
+    box-shadow: none;
+    font-family: var(--font-family);
+    padding: 0.5em 1em;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: min(20rem, 90vw);
+    background: var(--background-select);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.select select {
+    flex: 1;
+    cursor: pointer;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3498db;
+    transition: 0.25s all ease;
+    pointer-events: none;
+}
+
+.select:hover::after {
+    animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+    25% {
+        transform: translateY(5px);
+    }
+    75% {
+        transform: translateY(-5px);
+    }
+}
